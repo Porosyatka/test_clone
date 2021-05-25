@@ -1,2 +1,2 @@
 # test_clone
-testing clon
+testing clon Здрастеся!
