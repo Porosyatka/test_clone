@@ -8,7 +8,7 @@ pygame.init()
 и мы должны успеть щелкнуть по нему мышкой.
 '''
 
-FPS = 1
+FPS = 0.8
 screen = pygame.display.set_mode((1200, 900))
 
 RED = (255, 0, 0)
@@ -57,18 +57,39 @@ pygame.display.update()
 clock = pygame.time.Clock()
 finished = False
 score = 0
+xc = 0
+yc = 0
 while not finished:
     clock.tick(FPS)
-    draw_text(screen, str(score), 30, 600, 30)
+
+    draw_text(screen, str(score), 50, 600, 30)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             finished = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
-            print(event.pos)
-            score += 1
+            # print(event.pos)
+            xc = (event.pos[0])
+            yc = (event.pos[1])
+            print(xc)
+            print(yc)
+            # print(type(event.pos))
 
     new_ball()
     pygame.display.update()
+    c = (((xc - x)**2) + ((yc - y)**2))**0.5
+    d = ((xc - x))
+    e = ((xc - x)**2)
+    print("c: ", c)
+    print("d: ", d)
+    print("e: ", e)
+    if c <= r:
+        score += 1
+        print("Попал!")
+    else:
+        print("Мимо!")
+
+    print(x, y, r)
+
     screen.fill(BLACK)
 
 pygame.quit()
