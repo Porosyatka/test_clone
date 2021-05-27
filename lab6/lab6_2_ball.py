@@ -46,20 +46,25 @@ def new_ball():
     y = randint(100, 500)
     r = randint(30, 50)
     color = COLORS[randint(0, 5)]
+    print(x, y, r)
     circle(screen, color, (x, y), r)
+
+# печатает координаты мячика ( это не координаты клика)
 
 
 def click(event):
-    print(x, y, r)
+    print("koordinati balla?", x, y, r)
 
 
 pygame.display.update()
 clock = pygame.time.Clock()
 finished = False
-score = 0
-xc = 0
-yc = 0
+
+
 while not finished:
+    xc = 0
+    yc = 0
+    score = 0
     clock.tick(FPS)
 
     draw_text(screen, str(score), 50, 600, 30)
@@ -75,7 +80,10 @@ while not finished:
             # print(type(event.pos))
 
     new_ball()
-    pygame.display.update()
+    click(event)
+
+    print(xc)
+    print(yc)
     c = (((xc - x)**2) + ((yc - y)**2))**0.5
     d = ((xc - x))
     e = ((xc - x)**2)
@@ -85,10 +93,7 @@ while not finished:
     if c <= r:
         score += 1
         print("Попал!")
-    else:
-        print("Мимо!")
-
-    print(x, y, r)
+    pygame.display.update()
 
     screen.fill(BLACK)
 
