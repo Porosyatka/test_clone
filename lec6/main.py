@@ -1,5 +1,16 @@
 import library as lib
 
+
+def printer():
+    print(x)
+
+
+def modifier():
+    global x
+    x += 10
+    print(x)
+
+
 print('Main module', __name__)
 
 lib.foo(3)
@@ -20,3 +31,7 @@ for obj in lib.objects:
 
 lib.objects.pop()
 print(lib.objects)
+
+printer()
+modifier()
+printer()
