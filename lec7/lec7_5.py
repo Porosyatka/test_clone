@@ -8,6 +8,7 @@ print(pow(4, 4))
 print(pow(5, 4))
 
 
+# лучшее быстродействие:
 def pow2(a, n):
     if n == 0:
         return 1
