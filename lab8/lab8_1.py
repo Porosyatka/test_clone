@@ -22,6 +22,8 @@ def draw(l, n):
 
 #draw(400, 3)
 
+# https://mipt-cs.github.io/python3-2017-2018/labs/lab8.html
+
 
 def draw2(l, n):
     if n == 0:
